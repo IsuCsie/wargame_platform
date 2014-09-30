@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  {% block title %}{% end %}
+  <link rel="stylesheet" href="{{ static_url("style/bootstrap.min.css") }}"/>
+</head>
+<body>
+    <div class="navbar navbar-default">
+        <div class="navbar-header">
+            <a href="/" class="navbar-brand">義守大學資訊工程學系Wargame競賽</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            </button>
+        </div>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/rule">規則</a></li>
+                <li><a href="/challenge">題目</a></li>
+                <li><a href="/scoreboard">分數排名</a></li>
+                <li><a href="/signup">註冊</a></li>
+            </ul>
+        </div>
+    </div>
+    {% block body %}
+    {% end %}
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>{{ escape(handler.settings["website_title"])  }} - 註冊</title>
+{% end %}
+
+{% block body %}
+<form class="form-horizontal" action="{{ request.path }}" method="post">
+<fieldset>
+    <legend>註冊資料</legend>
+    <div class="form-group">
+        <label>帳號：</label><input type="text" name="username"/><br/>
+    </div>
+    <div class="form-group">
+    <label>密碼：</label><input type="password" name="password"/></br>
+    </div>
+    <div class="form-group">
+    <label>E-mail：</label><input type="email" name="email"/></br>
+    </div>
+    <div class="form-group">
+    <input type="submit" value="送出"/>
+    </div>
+</fieldset>
+</form>
+{% end %}
