@@ -1,24 +1,22 @@
 {% extends "base.html" %}
 
 {% block title %}
-<title>{{ escape(handler.settings["website_title"])  }} - 註冊</title>
+<title>{{ escape(handler.settings["website_title"])  }} - 登入</title>
 {% end %}
 
 {% block body %}
-<form class="form-horizontal" action="{{ request.path }}" method="post">
-<fieldset>
-   <div class="container">
-    <legend>Login</legend>
-    <div class="form-group">
-        <label>帳號：</label><input type="text" name="username"/><br/>
-    </div>
-    <div class="form-group">
-    <label>密碼：</label><input type="password" name="password"/></br>
-    </div>
-    <div class="form-group">
-    <input type="submit" value="送出"/>
-    </div>
-    </div>
-</fieldset>
-</form>
+<div class="container index">
+	<div class="bg_img">
+		<img src="/static/img/logo.png">
+	</div>
+	<div class="content">
+        <form name="form" id="form" action="{{ request.path }}" method="POST" enctype="text/plain">
+			<div class="label"><label>Log in</label></div>
+			<input type="text" class="gettext" id="userId" name="username" placeholder="帳號"> <br>
+            
+            <input type="password" class="gettext" id="userPw" name="password" placeholder="密碼"> <br>
+            <input type="submit" id="submitBtn" value="登入">
+		</form>
+	</div>
+</div>
 {% end %}

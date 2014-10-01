@@ -9,5 +9,6 @@ handlers = [
     (r"/signup", "controllers.main.SignUpHandler"),
     (r"/login","controllers.main.LoginHandler"),
     (r"/scoreboard","controllers.main.RankHandler"),
+    (r"/image/(.*)", tornado.web.StaticFileHandler, {"path": "./image"},),
     (r".*", "controllers.main.PageNotFound"),
 ]

@@ -33,13 +33,13 @@ class ChallengeHandler(BaseHandler):
     @tornado.web.authenticated
     def get(self):
         username =  self.get_current_user()
-        self.render("challenge.html",username=username)
+        news = []
+        self.render("challenge.html",username=username, news=news)
 
 class RankHandler(BaseHandler):
     @removeslash
     def get(self):
-        self.write("Building...")
-        #self.render('scoreboard.html')
+        self.render('scoreboard.html')
 
 
 class SignUpHandler(BaseHandler):
