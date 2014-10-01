@@ -91,7 +91,7 @@ class LoginHandler(BaseHandler):
                 self.redirect('/challenge')
         else:
             self.write('login failed ...')
-            self.wirte('<meta http-equiv="refresh" content="1;url=/" >')
+            self.write('<meta http-equiv="refresh" content="1;url=/" >')
 
 class PageNotFound(BaseHandler):
     def get(self):

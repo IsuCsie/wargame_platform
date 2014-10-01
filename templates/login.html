@@ -10,12 +10,12 @@
 		<img src="/static/img/logo.png">
 	</div>
 	<div class="content">
-        <form name="form" id="form" action="{{ request.path }}" method="POST" enctype="text/plain">
+        <form method="post" id="form" action="{{ request.path }}">
 			<div class="label"><label>Log in</label></div>
-			<input type="text" class="gettext" id="userId" name="username" placeholder="帳號"> <br>
+			<input type="text" name="username" class="gettext" id="username" placeholder="帳號"/> <br>
             
-            <input type="password" class="gettext" id="userPw" name="password" placeholder="密碼"> <br>
-            <input type="submit" id="submitBtn" value="登入">
+            <input type="password" name="password" class="gettext" id="password" placeholder="密碼"/> <br>
+            <input type="submit" id="submitBtn" value="登入"/>
 		</form>
 	</div>
 </div>
