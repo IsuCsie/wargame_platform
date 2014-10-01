@@ -32,7 +32,8 @@ class ChallengeHandler(BaseHandler):
     @removeslash
     @tornado.web.authenticated
     def get(self):
-        self.render("challenge.html")
+        username =  self.get_current_user()
+        self.render("challenge.html",username=username)
 
 class RankHandler(BaseHandler):
     @removeslash
@@ -83,11 +84,14 @@ class LoginHandler(BaseHandler):
         Users = self.db.table('Users')
         username = self.get_argument("username")
         password = md5.new(self.get_argument("password")).hexdigest()
-
-        if Users.contains(where('username') == username):
-            if Users.get(where('username') == username)['password'] == password:
+        login = Users.get(where('username') == username)
+        if login is not None:
+            if login.get('password') == password:
                 self.set_secure_cookie("user",self.get_argument("username"))
                 self.redirect('/challenge')
+        else:
+            self.write('login failed ...')
+            self.wirte('<meta http-equiv="refresh" content="1;url=/" >')
 
 class PageNotFound(BaseHandler):
     def get(self):

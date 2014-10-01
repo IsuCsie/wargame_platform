@@ -6,6 +6,13 @@
 
 {% block body %}
 <div class="container">
+	<div>
+		{% for item in news: %}
+		{% end %}
+	</div>
+	<div>
+		Welcome ,	{{ username }}
+	</div>
     <div class="bs-docs-section">
         <div class="row">
             <form action="{{ request.path }}" method="post">
