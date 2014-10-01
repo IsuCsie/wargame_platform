@@ -9,22 +9,22 @@
 <form class="form-horizontal" action="{{ request.path }}" method="post">
 <fieldset>
    
-	<p>
+	<p id="notice">
 		Noticed:
 			申請帳號請使用學號（開頭不用isu）
 	</p>
     <legend>註冊資料</legend>
     <div class="form-group">
-    <input type="text" name="username" placeholder="帳號：10003000a"/><br/>
+    <input class="gettext" type="text" name="username" placeholder="帳號：10003000a" required/>
     </div>
     <div class="form-group">
-    <input type="password" name="password" placeholder="密碼：至少四位數"/></br>
+    <input class="gettext" type="password" name="password" placeholder="密碼：至少四位數" required/>
     </div>
     <div class="form-group">
-    <input type="email" name="email" placeholder="E-mail:user@example.com"/></br>
+    <input class="gettext" type="email" name="email" placeholder="E-mail：user@example.com" required/>
     </div>
     <div class="form-group">
-    <input type="submit" value="送出"/>
+    <input  type="submit" class="submitBtn" value="送出"/>
     </div>
     
 </fieldset>
