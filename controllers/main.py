@@ -15,6 +15,9 @@ class BaseHandler(tornado.web.RequestHandler):
     def abort(self, code):
         raise tornado.web.HTTPError(code)
 
+    def get_current_user(self):
+        return self.get_secure_cookie('user')
+
 class IndexHandler(BaseHandler):
     @removeslash
     def get(self):
@@ -27,8 +30,16 @@ class RuleHandler(BaseHandler):
 
 class ChallengeHandler(BaseHandler):
     @removeslash
+    @tornado.web.authenticated
     def get(self):
         self.render("challenge.html")
+
+class RankHandler(BaseHandler):
+    @removeslash
+    def get(self):
+        self.write("Building...")
+        #self.render('scoreboard.html')
+
 
 class SignUpHandler(BaseHandler):
     @removeslash
@@ -44,6 +55,12 @@ class SignUpHandler(BaseHandler):
 
             password = md5.new(password).hexdigest()
 
+            if len(username) < 9 or len(password) < 4:
+                raise
+
+            if " " in username or " " in password:
+                raise
+
             if Users.search((where("username") == username) | (where("email") == email)):
                 raise
 
@@ -57,6 +74,23 @@ class SignUpHandler(BaseHandler):
         except:
             self.render("signup_fail.html")
 
+class LoginHandler(BaseHandler):
+    @removeslash
+    def get(self):
+        self.render("login.html")
+    
+    def post(self):
+        Users = self.db.table('Users')
+        username = self.get_argument("username")
+        password = md5.new(self.get_argument("password")).hexdigest()
+
+        if Users.contains(where('username') == username):
+            if Users.get(where('username') == username)['password'] == password:
+                self.set_secure_cookie("user",self.get_argument("username"))
+                self.redirect('/challenge')
+
 class PageNotFound(BaseHandler):
     def get(self):
         self.render("404.html")
+
+

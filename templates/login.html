@@ -8,19 +8,12 @@
 <form class="form-horizontal" action="{{ request.path }}" method="post">
 <fieldset>
    <div class="container">
-	<p>
-		Noticed:
-			申請帳號請使用學號（開頭不用isu）
-	</p>
-    <legend>註冊資料</legend>
+    <legend>Login</legend>
     <div class="form-group">
         <label>帳號：</label><input type="text" name="username"/><br/>
     </div>
     <div class="form-group">
     <label>密碼：</label><input type="password" name="password"/></br>
-    </div>
-    <div class="form-group">
-    <label>E-mail：</label><input type="email" name="email"/></br>
     </div>
     <div class="form-group">
     <input type="submit" value="送出"/>

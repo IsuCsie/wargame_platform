@@ -15,11 +15,12 @@ define("port", default=8000)
 class Application(tornado.web.Application):
     def __init__(self):
         settings = dict(
-            website_title = u"義守大學資訊工程學系Wargame競賽",
+            website_title = u"Wargame",
             template_path = os.path.join(os.path.dirname(__file__), "templates"),
             static_path = os.path.join(os.path.dirname(__file__) + "templates", "static"),
             #xsrf_cookies = True,
-            #cookie_secret = "",
+            login_url = "/login",
+            cookie_secret = "isucsie",
             debug = True,
         )
         tornado.web.Application.__init__(self, handlers, **settings)
