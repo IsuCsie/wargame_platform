@@ -212,20 +212,26 @@ form{
 	border: 5px solid #67F2D3;
 	border-radius: 8px;
 	position: absolute;
+/*
 	width: 30%;
 	height: 35%;
-	top: 35%;
-	left: 35%;
+*/
+    padding: 50px;
+	top: 30%;
+	left: 30%;
 }
 #userId,#userPw{
 	width: 60%;
 	height: 25px;
 	margin: 8px auto;
+    border-radius: 5px;
+    
 }
 #submitBtn{
 	width: 30%;
 	height: 30px;
 	margin: 8px auto;
+    border-radius: 5px;
 }
 /*---up down botton---*/
 
@@ -252,6 +258,11 @@ form{
 	display: none;
 	-webkit-animation:slide 2s infinite;
 	animation:slide 2s infinite;
+}
+
+#loginContext{
+    font-size:30px;
+    color: black;
 }
 
 @-webkit-keyframes slide{
