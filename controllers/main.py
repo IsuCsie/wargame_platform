@@ -44,7 +44,7 @@ class SignUpHandler(BaseHandler):
 
             password = md5.new(password).hexdigest()
 
-            if self.db.search((where("username") == username) | (where("email") == email)):
+            if Users.search((where("username") == username) | (where("email") == email)):
                 raise
 
             Users.insert({
