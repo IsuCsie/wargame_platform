@@ -44,9 +44,11 @@ class ChallengeHandler(BaseHandler):
         key = self.get_argument("key")
         result = Judger().verify(key)
         self.check_result = result[2]
-        if self.check_result is True:
-            Users = self.db.table('Users')
-            user = Users.search(where("username") == username)[0]
+        Users = self.db.table('Users')
+        user = Users.search(where("username") == username)[0]
+        if self.check_result is True and user[result[0]] == "":
+            #Users = self.db.table('Users')
+            #user = Users.search(where("username") == username)[0]
             current_score = user["score"]
             score = current_score + result[1]
             problem = result[0]
