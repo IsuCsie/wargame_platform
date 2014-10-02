@@ -19,27 +19,19 @@ class Reverse100Validator(object):
         return output
 
 class Judger(object):
-    w100_key = "456"
-    w200_key = "789"
-    p100_key = "abc"
-    f100_key = "def"
+    w100_key = "dd6241867c5965b76c64e47345a97464"
+    w200_key = "fb17114d6c3a0d5040779bad5cad38f0"
+    p100_key = "{key_is_ISU_CSIE_Buffer_Overflow}"
+    f100_key = "3xt u|\|del3te r0c|<5!"
 
     def verify(self, key):
-        r100validator = Reverse100Validator().decoder(key)
-        if ("USER" in r100validator and
-            "BYPASS_1000Limits" in r100validator and
-            "TryToFixMemoryList" in r100validator and
-            "TryToFixCRC32_ToBYPASS" in r100validator and
-            "AbleToInput1000_OnTextBox" in r100validator):
-            return ["r100", 100, True]
+        if key == self.w100_key:
+            return ["w100", 100, True]
+        elif key == self.w200_key:
+            return ["w200", 200, True]
+        elif key == self.p100_key:
+            return ["p100", 100, True]
+        elif key == self.f100_key:
+            return ["f100", 100, True]
         else:
-            if key == self.w100_key:
-                return ["w100", 100, True]
-            elif key == self.w200_key:
-                return ["w200", 200, True]
-            elif key == self.p100_key:
-                return ["p100", 100, True]
-            elif key == self.f100_key:
-                return ["f100", 100, True]
-            else:
-                return ["", 0, False]
+            return ["", 0, False]
