@@ -5,62 +5,20 @@
 {% end %}
 
 {% block body %}
+<div class="container challenge">
+	<div class="bg_img">
+        <img src="/static/img/brain.png">
+	</div>
     <form action="{{ request.path }}" method="post">
         <label>Key: </label>
         <input type="text" name="key"/>
         <input type="submit" value="送出"/>
         <p>{% if check_result == True %}恭喜你得分！{% else %}可惜～再試試吧！{% end %}</p>
     </form>
-    <!--<div class="container challenge">
-		<div class="up"></div>
-		<div class="down"></div>
-		<div class="bg_img">
-			<img src="/static/img/brain.png">
-		</div>
-		<div class="detial">
-            <form action="{{ request.path }}" method="post">
-                <label>題目一：</label>
-                <p>zzzzzzzzz</p>
-                <label>key:</label>
-                <input type="text" name="p1_key"/>
-                <input type="submit" value="送出"/>
-            </form>
-			123456
-			<div class="cancel">X</div>
-		</div>
-		<div class="content scrollbar" id="exam">
-            <div class="exam_quest"></div>
-			<div class="exam_quest"></div>
-			<div class="exam_quest"></div>
-			<div class="exam_quest"></div>
-			<div class="exam_quest"></div>
-			<div class="exam_quest"></div>
-			<div class="exam_quest"></div>
-			<div class="exam_quest"></div>
-			<div class="exam_quest"></div>
-			<div class="exam_quest"></div>
-			<div class="exam_quest"></div>
-			<div class="exam_quest"></div>
-			<div class="exam_quest"></div>
-			<div class="exam_quest"></div>
-			<div class="exam_quest"></div>
-			<div class="exam_quest"></div>
-			<div class="exam_quest"></div>
-			<div class="exam_quest"></div>
-			<div class="exam_quest"></div>
-			<div class="exam_quest"></div>
-			<div class="exam_quest"></div>
-			<div class="exam_quest"></div>
-			<div class="exam_quest"></div>
-			<div class="exam_quest"></div>
-			<div class="exam_quest"></div>
-		</div>
-    </div>-->
+</div>
 <div class="container">
-	<div>
+    <div>
 		Welcome ,	{{ username }}
 	</div>
 </div>
-<script type="text/javascript" src="/static/js/jQuery.js"></script>
-<script type="text/javascript" src="/static/js/showDetial.js"></script>
 {% end %}

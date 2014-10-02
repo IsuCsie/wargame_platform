@@ -8,6 +8,49 @@
 	<div class="container rule">
 		<div class="bg_img">
 			<img src="/static/img/rule.png">
-		</div>
+        </div>
+        <div class="content scrollbar">
+            <fieldset>
+                <legend>r100</legend>
+                <p>請突破 CrackMe 的輸入限制</p>
+                <p>讓程式可以輸入超過 1000 的數字</p>
+                <p>成功後請提交 程式輸出的 key</p>
+                <br/> 
+                <p>Hint1: 儲存數值之變數為一組陣列名單.</p>
+                <p>Hint2: 數值輸入限制為雙偵測點.</p>
+                <br/>
+                <p>解題方向: 找出名單控制點->拔除底下偵測限制.</p>
+            </fieldset>
+            <fieldset>
+                <legend>w100</legend>
+                <p>請嘗試登入到 admin 畫面來獲取 key</p>
+                <br/> 
+                <p>Hint: Directory traversal</p>
+            </fieldset>
+            <fieldset>
+                <legend>w200</legend>
+                <p>經過教訓網站管理者已經學會加密自己的密碼了</p>
+                <p>並再度接受各路屁孩的挑戰 ～</p>
+                <p>請各位再搞他一次</p>
+                <br/>
+                <p>Hint: base64</p>
+            </fieldset>
+            <fieldset>
+                <legend>p100</legend>
+                <p>一個特務在ltroot.twbbs.org:40689跑了一支程式</p>
+                <p>請試著分析附件中的binary檔案，找出這支程式的漏洞</p>
+                <p>嘗試remote exploit它並取得key</p>
+                <br/>
+                <p>Hint1: Buffer Overflow</p>
+                <p>Hint2: 目標主機是Little Endian的</p>
+            </fieldset>
+            <fieldset>
+                <legend>f100</legend>
+                <p>關主忘記這題的key是什麼，因為他把key存在一個檔案裡而且不小心刪掉了</p>
+                <p>附件有一個filesystem的image，你能幫他找回這題的key嗎 :D</p>
+                <br/>
+                <p>Hint: ext4 filesystem</p>
+            </fieldset>
+        </div>
 	</div>
 {% end %}
