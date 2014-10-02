@@ -37,10 +37,14 @@ class ChallengeHandler(BaseHandler):
         self.render("challenge.html",username=username, news=news)
 
 class RankHandler(BaseHandler):
+    def sortByScore(self, element):
+        return element["score"]
+
     @removeslash
     def get(self):
-        self.render('scoreboard.html')
-
+        Users = self.db.table('Users')
+        records = sorted(Users.all(), key=self.sortByScore, reverse=True)
+        self.render('scoreboard.html', records=records)
 
 class SignUpHandler(BaseHandler):
     @removeslash
@@ -68,7 +72,14 @@ class SignUpHandler(BaseHandler):
             Users.insert({
                 "username": username,
                 "password": password,
-                "email": email
+                "email": email,
+                "score": 0,
+                "r100": "",
+                "w100": "",
+                "w200": "",
+                "p100": "",
+                "p200": "",
+                "f100": ""
             })
             self.render("signup_success.html")
 
