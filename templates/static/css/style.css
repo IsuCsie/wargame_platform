@@ -8,6 +8,10 @@ body,html{
 	overflow: hidden;
 }
 
+#notice {
+    color: brown;
+}
+
 .container{
 	margin: 0 auto;
 	width: 100%;
@@ -20,6 +24,7 @@ body,html{
 	height: 70%;
 	top: 10%;
 	left: 10%;
+    
 }
 .content_scoreboard{
 	position: absolute;
@@ -182,6 +187,7 @@ hr{
 	height: 30px;
 	line-height: 30px;
 	display: inline-block;
+/*    padding: 10px;*/
 }
 .quest{
 	margin: 0 0;
@@ -218,9 +224,19 @@ form{
 	height: 35%;
 */
     padding: 50px;
-	top: 30%;
+	top: 20%;
 	left: 30%;
 }
+.form-group {
+    padding: 10px;
+}
+.gettext {
+    padding: 10px;
+    display: block;
+    margin:0 auto;
+}
+
+
 #userId,#userPw{
 	width: 60%;
 	height: 25px;
@@ -228,7 +244,7 @@ form{
     border-radius: 5px;
     
 }
-#submitBtn{
+.submitBtn{
 	width: 30%;
 	height: 30px;
 	margin: 8px auto;

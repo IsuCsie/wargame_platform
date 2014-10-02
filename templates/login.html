@@ -12,9 +12,13 @@
 	<div class="content">
         <form method="post" id="form" action="{{ request.path }}">
 			<div class="label"><label>Log in</label></div>
-			<input type="text" name="username" class="gettext" id="username" placeholder="帳號"/> <br>
-            <input type="password" name="password" class="gettext" id="password" placeholder="密碼"/> <br>
-            <input type="submit" id="submitBtn" value="登入"/>
+			<div class="form-group">
+			<input type="text" name="username" class="gettext" id="username" placeholder="帳號" required/>
+            </div>
+            <div class="form-group">
+            <input type="password" name="password" class="gettext" id="password" placeholder="密碼" required/>
+            </div>
+            <input type="submit" class="submitBtn" value="登入"/>
 		</form>
 	</div>
 </div>
