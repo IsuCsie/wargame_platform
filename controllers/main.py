@@ -3,7 +3,9 @@
 
 import tornado.web
 import md5
+import time, datetime
 
+from judge import Judger
 from tinydb import TinyDB, where
 from tornado.web import removeslash
 
@@ -29,12 +31,30 @@ class RuleHandler(BaseHandler):
         self.render("rule.html")
 
 class ChallengeHandler(BaseHandler):
+    check_result = False
     @removeslash
     @tornado.web.authenticated
     def get(self):
         username =  self.get_current_user()
-        news = []
-        self.render("challenge.html",username=username, news=news)
+        self.render("challenge.html",username=username, check_result=self.check_result)
+
+    @tornado.web.authenticated
+    def post(self):
+        username = self.get_current_user()
+        key = self.get_argument("key")
+        result = Judger().verify(key)
+        self.check_result = result[2]
+        if self.check_result is True:
+            Users = self.db.table('Users')
+            user = Users.search(where("username") == username)[0]
+            current_score = user["score"]
+            score = current_score + result[1]
+            problem = result[0]
+            t = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
+            Users.update({"score": score, problem: t}, cond=where("username")==username)
+            self.render("challenge.html", username=username, check_result=self.check_result)
+        else:
+            self.render("challenge.html", username=username, check_result=self.check_result)
 
 class RankHandler(BaseHandler):
     def sortByScore(self, element):
@@ -78,7 +98,6 @@ class SignUpHandler(BaseHandler):
                 "w100": "",
                 "w200": "",
                 "p100": "",
-                "p200": "",
                 "f100": ""
             })
             self.render("signup_success.html")
@@ -103,6 +122,12 @@ class LoginHandler(BaseHandler):
         else:
             self.write('login failed ...')
             self.write('<meta http-equiv="refresh" content="1;url=/" >')
+
+class LogoutHandler(BaseHandler):
+    @removeslash
+    def get(self):
+        self.clear_cookie("user")
+        self.redirect('/')
 
 class PageNotFound(BaseHandler):
     def get(self):

@@ -8,7 +8,8 @@ handlers = [
     (r"/challenge", "controllers.main.ChallengeHandler"),
     (r"/signup", "controllers.main.SignUpHandler"),
     (r"/login","controllers.main.LoginHandler"),
+    (r"/logout","controllers.main.LogoutHandler"),
     (r"/scoreboard","controllers.main.RankHandler"),
-    (r"/image/(.*)", tornado.web.StaticFileHandler, {"path": "./image"},),
+    #(r"/image/(.*)", tornado.web.StaticFileHandler, {"path": "./image"},),
     (r".*", "controllers.main.PageNotFound"),
 ]

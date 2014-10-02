@@ -5,7 +5,13 @@
 {% end %}
 
 {% block body %}
-	<div class="container challenge">
+    <form action="{{ request.path }}" method="post">
+        <label>Key: </label>
+        <input type="text" name="key"/>
+        <input type="submit" value="送出"/>
+        <p>{% if check_result == True %}恭喜你得分！{% else %}可惜～再試試吧！{% end %}</p>
+    </form>
+    <!--<div class="container challenge">
 		<div class="up"></div>
 		<div class="down"></div>
 		<div class="bg_img">
@@ -49,12 +55,8 @@
 			<div class="exam_quest"></div>
 			<div class="exam_quest"></div>
 		</div>
-	</div>
+    </div>-->
 <div class="container">
-	<div>
-		{% for item in news %}
-		{% end %}
-	</div>
 	<div>
 		Welcome ,	{{ username }}
 	</div>
