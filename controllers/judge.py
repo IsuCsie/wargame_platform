@@ -21,9 +21,9 @@ class Reverse100Validator(object):
 
 
 class Judger(object):
-    w100_key = "ISU{jsfuck_is_rock!}"
-    w200_key = "ISU{stupid_way2use_hash}"
-    w300_key = "ISU{xss_is_dirty}"
+    w100_key = "ISU{comment_is_very_important}"
+    w200_key = "ISU{jsfuck_is_rock!}"
+    w300_key = "ISU{stupid_way2use_hash}"
 
     def verify(self, key):
         if key == self.w100_key:
@@ -31,6 +31,6 @@ class Judger(object):
         elif key == self.w200_key:
             return ["w200", 200, True]
         elif key == self.w300_key:
-            return ["w100", 300, True]
+            return ["w300", 300, True]
         else:
             return ["", 0, False]
