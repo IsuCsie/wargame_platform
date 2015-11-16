@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>{{ escape(handler.settings["website_title"])  }} - 題目</title>
+{% end %}
+
+{% block body %}
+<div class="container challenge">
+	<div class="bg_img">
+        <img src="/static/img/brain.png">
+	</div>
+    <form action="{{ request.path }}" method="post">
+        <label>Flag: </label>
+        <input type="text" name="key"/>
+        <input type="submit" value="送出"/>
+        <p>{% if check_result == True %}恭喜你得分！{% else %}可惜～再試試吧！{% end %}</p>
+    </form>
+</div>
+<div class="container">
+    <div>
+		Welcome ,	{{ username }}
+	</div>
+</div>
+{% end %}

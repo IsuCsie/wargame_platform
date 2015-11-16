@@ -9,10 +9,14 @@
 	<header>
 		<div class="nav">
 			<li><a href="/scoreboard" target="_self">分數排名</a></li>
-            <li><a href="/challenge" target="_self">傳key</a></li>
+            <li><a href="/submit" target="_self">送 Flag</a></li>
+            {% if current_user %}
             <li><a href="/logout" target="_self">登出</a></li>
-            <li><a href="/signup" target="_self">註冊</a></li>
-			<li><a href="/problem" target="_self">題目</a></li>
+            {% else %}
+            <li><a href="/login" target"_self">登入</a></li>
+            {% end %}
+      <li><a href="/signup" target="_self">註冊</a></li>
+			<li><a href="/challenge" target="_self">題目</a></li>
 			<li><a href="/" target="_self">Wargame</a></li>
 		</div>
 	</header>

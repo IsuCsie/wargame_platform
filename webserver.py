@@ -10,21 +10,23 @@ from tornado.options import define, options
 from urls import handlers
 from tinydb import TinyDB
 
-define("port", default=8000)
+define("port", default=80)
+
 
 class Application(tornado.web.Application):
     def __init__(self):
         settings = dict(
-            website_title = u"Wargame",
-            template_path = os.path.join(os.path.dirname(__file__), "templates"),
-            static_path = os.path.join(os.path.dirname(__file__) + "templates", "static"),
-            #xsrf_cookies = True,
-            login_url = "/login",
-            cookie_secret = "isucsie",
-            debug = True,
+            website_title=u"Wargame",
+            template_path=os.path.join(os.path.dirname(__file__), "templates"),
+            static_path=os.path.join(os.path.dirname(__file__) + "templates", "static"),
+            login_url="/login",
+            cookie_secret="isucsie",
+            debug=True,
+            autoload=True,
         )
         tornado.web.Application.__init__(self, handlers, **settings)
         self.db = TinyDB('database.json')
+
 
 def main():
     tornado.options.parse_command_line()

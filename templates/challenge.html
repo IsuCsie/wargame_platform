@@ -1,24 +1,28 @@
 {% extends "base.html" %}
 
 {% block title %}
-<title>{{ escape(handler.settings["website_title"])  }} - 題目</title>
+<title>{{ escape(handler.settings["website_title"])  }} - 規則</title>
 {% end %}
 
 {% block body %}
-<div class="container challenge">
-	<div class="bg_img">
-        <img src="/static/img/brain.png">
+	<div class="container rule">
+		<div class="bg_img">
+			<img src="/static/img/rule.png">
+        </div>
+        <div class="content scrollbar">
+            <fieldset>
+              <legend>Web100</legend>
+              <p>What the fxxk is this file ...</p>
+              <p>Can you figure it out ?</p>
+              <br/>
+              <a href='static/js/wtf.js'>link</a>
+            </fieldset>
+            <fieldset>
+              <legend>Web200</legend>
+              <p>Can you login as admin to get the flag ?</p>
+              <br/>
+              <a href='http://140.127.196.95/'>link</a>
+            </fieldset>
+        </div>
 	</div>
-    <form action="{{ request.path }}" method="post">
-        <label>Key: </label>
-        <input type="text" name="key"/>
-        <input type="submit" value="送出"/>
-        <p>{% if check_result == True %}恭喜你得分！{% else %}可惜～再試試吧！{% end %}</p>
-    </form>
-</div>
-<div class="container">
-    <div>
-		Welcome ,	{{ username }}
-	</div>
-</div>
 {% end %}
