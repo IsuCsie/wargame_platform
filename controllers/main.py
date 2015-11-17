@@ -135,10 +135,9 @@ class LoginHandler(BaseHandler):
         password = md5.new(self.get_argument("password")).hexdigest()
         login = Users.get(where('username') == username)
 
-        if login is not None:
-            if login.get('password') == password:
-                self.set_secure_cookie("user", self.get_argument("username"))
-                self.redirect('/challenge')
+        if login is not None and login.get('password') == password:
+            self.set_secure_cookie("user", self.get_argument("username"))
+            self.redirect('/challenge')
         else:
             self.write('login failed ...')
             self.write('<meta http-equiv="refresh" content="1;url=/" >')
