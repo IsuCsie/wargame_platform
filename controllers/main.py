@@ -107,6 +107,8 @@ class SignUpHandler(BaseHandler):
                 "username": username,
                 "password": password,
                 "score": 0,
+                "w10": "",
+                "w50": "",
                 "w100": "",
                 "w200": "",
                 "w300": ""

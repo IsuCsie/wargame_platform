@@ -19,6 +19,8 @@
 				<span class="quest_flag"></span>
 				<span class="quest_flag"></span>
 				<span class="quest_flag"></span>
+				<span class="quest_flag"></span>
+				<span class="quest_flag"></span>
 			</div>
 			<hr>
             <div class="content_scoreboard scrollbar" id="exam">
@@ -28,8 +30,10 @@
                     <span class="rank">{{ records.index(record)+1 }}</span>
                     <span class="username">{{ record["username"] }}</span>
                     <span class="score">{{ record["score"] }}</span>
-                    <span class="quest {% if record["w100"] == "" %}fail{% else %}success{% end %}" title="w100"></span>
-					<span class="quest {% if record["w200"] == "" %}fail{% else %}success{% end %}" title="w200"></span>
+                    <span class="quest {% if record["w10"] == "" %}fail{% else %}success{% end %}" title="w100"></span>
+					<span class="quest {% if record["w50"] == "" %}fail{% else %}success{% end %}" title="w300"></span>
+					<span class="quest {% if record["w100"] == "" %}fail{% else %}success{% end %}" title="w200"></span>
+					<span class="quest {% if record["w200"] == "" %}fail{% else %}success{% end %}" title="w300"></span>
 					<span class="quest {% if record["w300"] == "" %}fail{% else %}success{% end %}" title="w300"></span>
                 </div>
                 {% end %}
