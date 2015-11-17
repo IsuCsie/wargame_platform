@@ -42,7 +42,8 @@ class SubmitHandler(BaseHandler):
     @tornado.web.authenticated
     def get(self):
         username = self.get_current_user()
-        self.render("submit.html", username=username, check_result=self.check_result)
+        self.render("submit.html", username=username,
+                    check_result=self.check_result)
 
     @tornado.web.authenticated
     def post(self):
@@ -126,6 +127,7 @@ class LoginHandler(BaseHandler):
         username = self.get_argument("username")
         password = md5.new(self.get_argument("password")).hexdigest()
         login = Users.get(where('username') == username)
+
         if login is not None:
             if login.get('password') == password:
                 self.set_secure_cookie("user", self.get_argument("username"))
