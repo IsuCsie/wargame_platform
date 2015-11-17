@@ -3,10 +3,11 @@
 
 import tornado.web
 import md5
-import time, datetime
+import time
+import datetime
 
 from judge import Judger
-from tinydb import TinyDB, where
+from tinydb import where
 from tornado.web import removeslash
 
 
