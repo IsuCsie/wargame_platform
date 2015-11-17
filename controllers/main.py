@@ -58,7 +58,7 @@ class SubmitHandler(BaseHandler):
             score = current_score + result[1]
             problem = result[0]
             t = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
-            Users.update({"score": score, problem: t},
+            Users.update({"score": score, problem: t, "lastSubmit": t},
                          cond=where("username") == username)
 
             self.render("submit.html",
@@ -74,10 +74,14 @@ class RankHandler(BaseHandler):
     def sortByScore(self, element):
         return element["score"]
 
+    def sortBylastSubmit(self, element):
+        return element["lastSubmit"]
+
     @removeslash
     def get(self):
         Users = self.db.table('Users')
-        records = sorted(Users.all(), key=self.sortByScore, reverse=True)
+        records = sorted(Users.all(), key=self.sortBylastSubmit, reverse=False)
+        records = sorted(records, key=self.sortByScore, reverse=True)
         self.render('scoreboard.html', records=records)
 
 
@@ -106,6 +110,7 @@ class SignUpHandler(BaseHandler):
             Users.insert({
                 "username": username,
                 "password": password,
+                "lastSubmit": "",
                 "score": 0,
                 "w10": "",
                 "w50": "",
