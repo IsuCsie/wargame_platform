@@ -6,25 +6,22 @@
 
 {% block body %}
 <div class="container index">
-<form class="form-horizontal" action="{{ request.path }}" method="post">
-<fieldset>
-   
-	<p id="notice">
+<form class="col s12" action="{{ request.path }}" method="post">
+
+	<p class="flow-text" id="notice">
 		Noticed:
 			申請帳號請使用學號（開頭不用isu）
 	</p>
-    <legend>註冊資料</legend>
-    <div class="form-group">
-    <input class="gettext" type="text" name="username" placeholder="帳號：10303000a" required/>
+    <legend class="flow-text">註冊資料</legend>
+    <div class="input-field col s4">
+    <input class="gettext" type="text" name="username" placeholder="帳號：10303000a" class="validate" required/>
     </div>
-    <div class="form-group">
-    <input class="gettext" type="password" name="password" placeholder="密碼：至少四位數" required/>
+    <div class="input-field col s4">
+    <input class="gettext" type="password" name="password" placeholder="密碼：至少四位數" class="validate" required/>
     </div>
-    <div class="form-group">
-    <input  type="submit" class="submitBtn" value="送出"/>
+    <div class="input-field col s4">
+    <input  type="submit" class="waves-effect waves-light btn blue lighten-1 submitBtn" class="validate" value="送出"/>
     </div>
-    
-</fieldset>
 </form>
 </div>
 {% end %}
