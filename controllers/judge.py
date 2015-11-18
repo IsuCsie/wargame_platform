@@ -4,7 +4,7 @@
 
 class Judger(object):
     w10_key = "ISU{bypass_is_kinda_fun}"
-    w50_key = "ISU{}"
+    w50_key = "ISU{never_trust_input}"
     w100_key = "ISU{comment_is_very_important}"
     w200_key = "ISU{jsfuck_is_rock!}"
     w300_key = "ISU{stupid_way2use_hash}"
