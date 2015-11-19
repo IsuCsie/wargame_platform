@@ -10,7 +10,7 @@
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
   <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+  <link rel="stylesheet" href="{{ static_url("materialize/css/materialize.min.css") }}">
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -21,6 +21,7 @@
     <nav>
       <div class="nav-wrapper blue lighten-1">
         <a href="/" class="brand-logo">Wargame Platform</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="/scoreboard" target="_self">分數排名</a></li>
           <li><a href="/submit" target="_self">送 Flag</a></li>
@@ -32,8 +33,21 @@
           <li><a href="/signup" target="_self">註冊</a></li>
           <li><a href="/challenge" target="_self">題目</a></li>
           <li><a href="/" target="_self">Wargame</a></li>
-          <ul>
+        </ul>
+            <ul id="mobile-demo" class="side-nav">
+              <li><a href="/scoreboard" target="_self">分數排名</a></li>
+              <li><a href="/submit" target="_self">送 Flag</a></li>
+              {% if current_user %}
+              <li><a href="/logout" target="_self">登出</a></li>
+              {% else %}
+              <li><a href="/login" target "_self">登入</a></li>
+              {% end %}
+              <li><a href="/signup" target="_self">註冊</a></li>
+              <li><a href="/challenge" target="_self">題目</a></li>
+              <li><a href="/" target="_self">Wargame</a></li>
+            </ul>
       </div>
+
     </nav>
   </header>
   {% block body %} {% end %}
@@ -41,7 +55,7 @@
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+  <script src={{ static_url("materialize/js/materialize.min.js") }}></script>
   <script src="{{ static_url("js/materialize_customize.js") }}"></script>
 
 </body>

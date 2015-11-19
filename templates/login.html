@@ -1,12 +1,6 @@
 {% extends "base.html" %} {% block title %}
 <title>{{ escape(handler.settings["website_title"]) }} - 登入</title>
 {% end %} {% block body %}
-
-<div class="parallax-container">
-	<div class="parallax">
-		<img src="/static/img/logo.png">
-	</div>
-</div>
 <div class="container">
 <div class="row">
 		<form class="col s12" method="post" id="form" action="{{ request.path }}">
@@ -27,6 +21,11 @@
 			</div>
 		</div>
 		</form>
+	</div>
+</div>
+<div class="parallax-container">
+	<div class="parallax">
+		<img src="/static/img/logo.png">
 	</div>
 </div>
 {% end %}
