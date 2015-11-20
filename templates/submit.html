@@ -5,22 +5,23 @@
 {% end %}
 
 {% block body %}
-<div class="parallax-container">
-	<div class="parallax">
-		<img src="/static/img/brain.png">
-	</div>
-</div>
-<div class="container challenge section white">
+
+<div class="container challenge white flow-text">
     <form action="{{ request.path }}" method="post">
-        <label class="flow-text">Flag: </label>
+        <label >Flag: </label>
         <input type="text" name="key"/>
         <input class="waves-effect waves-light btn blue lighten-1" type="submit" value="送出" />
-        <p class="flow-text">{% if check_result == True %}恭喜你得分！{% else %}可惜～再試試吧！{% end %}</p>
+        <p>{% if check_result == True %}恭喜你得分！{% else %}可惜～再試試吧！{% end %}</p>
     </form>
 </div>
-<div class="container">
+<div class="parallax-container">
+	<div class="parallax amber">
+	</div>
+</div>
+<div class="container section flow-text">
     <div>
 		Welcome ,	{{ username }}
 	</div>
 </div>
+
 {% end %}

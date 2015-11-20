@@ -1,9 +1,55 @@
-.parallax-container
-{
-   height: 450px;
+.parallax-container {
+  height: 450px;
 }
+
 /* label underline focus color */
-   .input-field input[type=text]:focus {
-     border-bottom: 1px solid #42a5f5;
-     box-shadow: 0 1px 0 0 #42a5f5;
-   }
+
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #42a5f5;
+  box-shadow: 0 1px 0 0 #42a5f5;
+}
+
+/*---data setting---*/
+
+hr {
+  border: 1px solid #999;
+}
+.data {
+  margin: 5px auto;
+  height: 30px;
+  width: 100%;
+}
+.data_item {
+  position: fixed;
+}
+.rank, .username, .score {
+  text-align: center;
+  margin: 0 20px;
+  width: 8%;
+  height: 30px;
+  line-height: 30px;
+  display: inline-block;
+  /*    padding: 10px;*/
+}
+.quest {
+  margin: 0 0;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  vertical-align: top;
+  background: grey;
+}
+.success {
+  background: green;
+}
+.fail {
+  background: red;
+}
+.quest_flag {
+  margin: 0 0;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  vertical-align: top;
+  background: #666;
+}
