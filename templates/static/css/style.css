@@ -1,337 +1,55 @@
-*{
-	font-family: '微軟正黑體';
-}
-body,html{
-	margin: 0 auto;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
+.parallax-container {
+  height: 450px;
 }
 
-#notice {
-    color: brown;
+/* label underline focus color */
+
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #42a5f5;
+  box-shadow: 0 1px 0 0 #42a5f5;
 }
 
-.container{
-	margin: 0 auto;
-	width: 100%;
-	height: 100%;
-}
-.content{
-	position: fixed;
-	margin: 0 auto;
-	width: 80%;
-	height: 70%;
-	top: 10%;
-	left: 10%;
-    
-}
-.content_scoreboard{
-	position: absolute;
-	margin: 0 auto;
-	left: 3px;
-	width: 100%;
-	height: 85%;
-}
-
-/*background color setting*/
-.index{
-	background: #344D5C;
-	color: #fff;
-}
-.rule{
-	background: #F2D540;
-}
-.challenge{
-	background: #20A28E;
-}
-.scoreboard{
-	background: #82c0A0;
-}
-.login{
-	background: #DF4949;
-}
-
-
-header{
-	z-index: 10;
-	position: fixed;
-	margin: 0 auto;
-	padding:0 auto; 
-	width: 100%;
-	height: 5%;
-	background: rgba(100%,100%,100%,0.5);
-}
-
-/*---navbar setting---*/
-.nav{
-	margin: 0 auto;
-}
-.nav li{
-	float: right;
-	color: #666;
-	margin:0 0;
-	padding: 5px 0;
-	list-style: none;
-}
-.nav li a{
-	text-decoration: none;
-	border-right:1px solid #fff; 
-	margin:0 0;
-	padding: 5px 20px;
-	color: #666;
-}
-.nav li:hover,.nav li:hover a{
-	background: #DF4949;
-	color: #fff;
-	cursor: pointer;
-	text-decoration: none;
-}
-.nav li:first-child a{
-	border-right: none;
-}
-.nav li:last-child:hover,.nav li:last-child:hover a{
-	background: none;
-	color: #fff;
-}
-
-
-a:visited{
-	color: #666;
-	text-decoration: none;
-}
-
-footer{
-	position: fixed;
-	bottom: 0;
-	margin: 0 auto;
-	width: 100%;
-	height: 5%;
-	opacity: 0.5;
-	background: black;
-}
-
-.bg_img{
-	z-index: 0;
-	position: absolute;
-	width: 100%;
-	height: 90%;
-	top: calc(50% - 300px);
-	left: calc(50% - 300px);
-}
-img{
-	height: 100%;
-	opacity: 0.5;	
-}
-.scrollbar{
-	overflow-y:auto; 
-}
-/*---question setting---*/
-.exam_quest{
-	display: inline-block;
-	margin-left: 4%;
-	margin-top: 4%;
-	width: 15%;
-	height: 100px;
-	background: rgba(100%,100%,100%,0.5);
-	box-shadow: 0 0 5px 2px rgba(100%,100%,100%,0.9);
-	border-radius: 3px;
-	cursor: pointer;
-}
-.exam_quest:hover{
-	box-shadow: 0 0 5px 8px rgba(0%,100%,100%,1);
-}
-.detial{
-	z-index: 1;
-	position: absolute;
-	width: 50%;
-	height: 80%;
-	display: none;
-	background: rgba(0%,0%,0%,0.9);
-	left: 25%;
-	top: 10%;
-}
-.cancel{
-	position: absolute;
-	top: -15px;
-	right: -15px;
-	width: 30px;
-	height: 30px;
-	border: 2px solid #fff;
-	background: #333;
-	border-radius: 30px;
-	text-align: center;
-	cursor: pointer;
-	line-height: 30px;
-	color: #fff;
-}
-.cancel:hover{
-	background: #999;
-}
 /*---data setting---*/
-hr{
-	border:1px solid #999;
-}
-.data{
-	margin: 5px auto;
-	height: 30px;
-	width: 100%;
-}
-.data_item{
-	position: fixed;
-}
-.rank,.username,.score{
-	text-align: center;
-	margin: 0 20px;
-	width: 8%;
-	height: 30px;
-	line-height: 30px;
-	display: inline-block;
-/*    padding: 10px;*/
-}
-.quest{
-	margin: 0 0;
-	width: 30px;
-	height: 30px;
-	display: inline-block;
-	vertical-align:top;
-	background: grey; 
-}
-.success{
-	background: green; 
-}
-.fail{
-	background: red;
-}
-.quest_flag{
-	margin: 0 0;
-	width: 30px;
-	height: 30px;
-	display: inline-block;
-	vertical-align:top;
-	background: #666;
-}
 
-/*---form setting---*/
-form{
-	text-align: center;
-	background: rgba(100%,100%,100%,0.5);
-	border: 5px solid #67F2D3;
-	border-radius: 8px;
-	position: absolute;
-/*
-	width: 30%;
-	height: 35%;
-*/
-    padding: 50px;
-	top: 20%;
-	left: 30%;
+hr {
+  border: 1px solid #999;
 }
-.form-group {
-    padding: 10px;
+.data {
+  margin: 5px auto;
+  height: 30px;
+  width: 100%;
 }
-.gettext {
-    padding: 10px;
-    display: block;
-    margin:0 auto;
+.data_item {
+  position: fixed;
 }
-
-
-#userId,#userPw{
-	width: 60%;
-	height: 25px;
-	margin: 8px auto;
-    border-radius: 5px;
-    
+.rank, .username, .score {
+  text-align: center;
+  margin: 0 20px;
+  width: 8%;
+  height: 30px;
+  line-height: 30px;
+  display: inline-block;
+  /*    padding: 10px;*/
 }
-.submitBtn{
-	width: 30%;
-	height: 30px;
-	margin: 8px auto;
-    border-radius: 5px;
+.quest {
+  margin: 0 0;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  vertical-align: top;
+  background: grey;
 }
-/*---up down botton---*/
-
-.up{
-	position: absolute;
-	right: 5%;
-	top: calc(50% - 25px);
-	width: 50px;
-	height: 50px;
-	background-image: url('/static/img/up_arrow.png');
-	background-size: 50px 50px;
-	display: none;
-	-webkit-animation:slide 2s infinite;
-	animation:slide 2s infinite;
+.success {
+  background: green;
 }
-.down{
-	position: absolute;
-	right: 5%;
-	top: calc(50% - 25px);
-	width: 50px;
-	height: 50px;
-	background-image: url('/static/img/down_arrow.png');
-	background-size: 50px 50px;
-	display: none;
-	-webkit-animation:slide 2s infinite;
-	animation:slide 2s infinite;
+.fail {
+  background: red;
 }
-
-#loginContext{
-    font-size:30px;
-    color: black;
-}
-
-@-webkit-keyframes slide{
-	0%,100%{
-		top: calc(50% + 25px);
-	}
-	50%{
-		top: calc(50% - 25px);
-	}
-}
-@keyframes slide{
-	0%,100%{
-		top: calc(50% + 25px);
-	}
-	50%{
-		top: calc(50% - 25px);
-	}
-}
-/*---scrollbar style---*/
-::-webkit-scrollbar {
-    width: 10px;
-}
-::-webkit-scrollbar-track {
-    background-color: none;
-} 
-::-webkit-scrollbar-thumb {
-	width: 10px;
-    background-color: none;
-    border:10px solid rgba(0%,0%,0%,0);
-}
-::-webkit-scrollbar-button {
-    background-color: none;
-}
-::-webkit-scrollbar-corner {
-      background-color: black;
-}
-
-fieldset {
-    border-radius: 25px;
-    border-color: black;
-    margin-bottom: 10px;
-}
-
-legend {
-    border: 1px solid black;
-    background-color: black;
-    color: white;
-    padding: 10px;
-    border-radius: 25px;
-    transform: rotate(-15deg);
-    -ms-transform: rotate(-15deg);
-    -moz-transform: rotate(-15deg);
-    -webkit-transform: rotate(-15deg);
-    -o-transform: rotate(-15deg);
+.quest_flag {
+  margin: 0 0;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  vertical-align: top;
+  background: #666;
 }
