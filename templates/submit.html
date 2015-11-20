@@ -5,20 +5,21 @@
 {% end %}
 
 {% block body %}
-<div class="container challenge">
-	<div class="bg_img">
-        <img src="/static/img/brain.png">
-	</div>
+
+<div class="container challenge flow-text">
+  <div class="row">
     <form action="{{ request.path }}" method="post">
-        <label>Flag: </label>
+        <label class="flow-text">Flag: </label>
         <input type="text" name="key"/>
-        <input type="submit" value="送出"/>
+        <input class="waves-effect waves-light btn blue lighten-1" type="submit" value="送出" />
         <p>{% if check_result == True %}恭喜你得分！{% else %}可惜～再試試吧！{% end %}</p>
     </form>
+  </div>
 </div>
-<div class="container">
+<div class="container section flow-text">
     <div>
 		Welcome ,	{{ username }}
 	</div>
 </div>
+
 {% end %}
