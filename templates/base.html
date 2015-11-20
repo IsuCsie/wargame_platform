@@ -20,38 +20,35 @@
   <header>
     <nav>
       <div class="nav-wrapper blue lighten-1">
-        <a href="/" class="brand-logo">Wargame Platform</a>
+        <a href="/" class="brand-logo">Wargame</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="/scoreboard" target="_self">分數排名</a></li>
-          <li><a href="/submit" target="_self">送 Flag</a></li>
+          <li><a href="/challenge" target="_self">題目</a></li>
+          <li><a href="/signup" target="_self">註冊</a></li>
           {% if current_user %}
           <li><a href="/logout" target="_self">登出</a></li>
           {% else %}
           <li><a href="/login" target "_self">登入</a></li>
           {% end %}
-          <li><a href="/signup" target="_self">註冊</a></li>
-          <li><a href="/challenge" target="_self">題目</a></li>
-          <li><a href="/" target="_self">Wargame</a></li>
+          <li><a href="/submit" target="_self">送 Flag</a></li>
+          <li><a href="/scoreboard" target="_self">分數排名</a></li>
         </ul>
             <ul id="mobile-demo" class="side-nav">
-              <li><a href="/scoreboard" target="_self">分數排名</a></li>
-              <li><a href="/submit" target="_self">送 Flag</a></li>
+              <li><a href="/challenge" target="_self">題目</a></li>
+              <li><a href="/signup" target="_self">註冊</a></li>
               {% if current_user %}
               <li><a href="/logout" target="_self">登出</a></li>
               {% else %}
               <li><a href="/login" target "_self">登入</a></li>
               {% end %}
-              <li><a href="/signup" target="_self">註冊</a></li>
-              <li><a href="/challenge" target="_self">題目</a></li>
-              <li><a href="/" target="_self">Wargame</a></li>
+              <li><a href="/submit" target="_self">送 Flag</a></li>
+              <li><a href="/scoreboard" target="_self">分數排名</a></li>
             </ul>
       </div>
 
     </nav>
   </header>
   {% block body %} {% end %}
-  <footer></footer>
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <!-- Compiled and minified JavaScript -->
