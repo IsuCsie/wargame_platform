@@ -12,36 +12,77 @@
               <p>Can you alert me ?</p>
               <br/>
               <a href='140.127.196.95/echo.php'>link</a>
-              {% if hint %} <p>HINT: strip once</p> {% end %}
-            </fieldset>
+							<br/>
+              </fieldset>
+							{% if hint %}
+							<ul class="collapsible" data-collapsible="expandable">
+						    <li>
+						      <div class="collapsible-header"><i class="material-icons">lightbulb_outline</i>Web10 Hint</div>
+						      <div class="collapsible-body"><p>HINT: strip once.</p></div>
+						    </li>
+							</ul>
+							{% end %}
             <fieldset>
               <legend>Web50</legend>
               <p>Can you find out the password of admin ?</p>
               <br/>
               <a href='http://140.127.196.95/query.php'>link</a>
-              {% if hint %} <p>HINT: logic flaw is the hole thing</p> {% end %}
-            </fieldset>
+							<br/>
+						</fieldset>
+              {% if hint %}
+  						<ul class="collapsible" data-collapsible="expandable">
+						    <li>
+						      <div class="collapsible-header"><i class="material-icons">lightbulb_outline</i>Web50 Hint</div>
+						      <div class="collapsible-body"><p>HINT: logic flaw is the hole thing.</p></div>
+						    </li>
+							</ul>
+							{% end %}
+
             <fieldset>
               <legend>Web100</legend>
               <p>Something went wrong in this page</p>
               <br/>
               <a href='/PNF'>link</a>
-              {% if hint %} <p>HINT: 檔不能沒有柱姊</p> {% end %}
+							<br/>
             </fieldset>
+						{% if hint %}
+						<ul class="collapsible" data-collapsible="expandable">
+							<li>
+								<div class="collapsible-header"><i class="material-icons">lightbulb_outline</i>Web100 Hint</div>
+								<div class="collapsible-body"><p>HINT: 檔不能沒有柱姊</p></div>
+							</li>
+						</ul>
+						{% end %}
             <fieldset>
               <legend>Web200</legend>
               <p>What the fxxk is this file ...</p>
               <p>Can you figure it out ?</p>
               <br/>
               <a href='static/js/wtf.js'>link</a>
-              {% if hint %} <p>HINT: it is jsfucking you</p> {% end %}
+							<br/>
             </fieldset>
+						{% if hint %}
+						<ul class="collapsible" data-collapsible="expandable">
+							<li>
+								<div class="collapsible-header"><i class="material-icons">lightbulb_outline</i>Web200 Hint</div>
+								<div class="collapsible-body"><p>HINT: it is jsfucking you</p></div>
+							</li>
+						</ul>
+						{% end %}
             <fieldset>
               <legend>Web300</legend>
               <p>Can you login as admin to get the flag ?</p>
               <a href='http://140.127.196.95/'>link</a>
-              {% if hint %} <p>HINT: login function is stupid</p> {% end %}
+							<br/>
             </fieldset>
+						{% if hint %}
+						<ul class="collapsible" data-collapsible="expandable">
+							<li>
+								<div class="collapsible-header"><i class="material-icons">lightbulb_outline</i>Web300 Hint</div>
+								<div class="collapsible-body"><p>HINT: login function is stupid</p></div>
+							</li>
+						</ul>
+						{% end %}
         </div>
 	</div>
 {% end %}
