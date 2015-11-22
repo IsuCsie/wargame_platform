@@ -4,6 +4,7 @@
 import tornado.web
 import md5
 import time
+import json
 import datetime
 
 from judge import Judger
@@ -30,9 +31,16 @@ class IndexHandler(BaseHandler):
 
 
 class ChallengeHandler(BaseHandler):
+    @staticmethod
+    def getHint():  # get hint option from config.json
+        with open('config.json') as f:
+            return json.load(f).get('hint')
+
     @removeslash
     def get(self):
-        self.render("challenge.html")
+        hint = self.getHint()
+        print '[SYS] Show Hint is %r' % hint
+        self.render("challenge.html", hint=hint)
 
 
 class SubmitHandler(BaseHandler):

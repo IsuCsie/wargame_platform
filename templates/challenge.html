@@ -12,18 +12,21 @@
               <p>Can you alert me ?</p>
               <br/>
               <a href='140.127.196.95/echo.php'>link</a>
+              {% if hint %} <p>HINT: strip once</p> {% end %}
             </fieldset>
             <fieldset>
               <legend>Web50</legend>
               <p>Can you find out the password of admin ?</p>
               <br/>
               <a href='http://140.127.196.95/query.php'>link</a>
+              {% if hint %} <p>HINT: logic flaw is the hole thing</p> {% end %}
             </fieldset>
             <fieldset>
               <legend>Web100</legend>
               <p>Something went wrong in this page</p>
               <br/>
               <a href='/PNF'>link</a>
+              {% if hint %} <p>HINT: 檔不能沒有柱姊</p> {% end %}
             </fieldset>
             <fieldset>
               <legend>Web200</legend>
@@ -31,11 +34,13 @@
               <p>Can you figure it out ?</p>
               <br/>
               <a href='static/js/wtf.js'>link</a>
+              {% if hint %} <p>HINT: it is jsfucking you</p> {% end %}
             </fieldset>
             <fieldset>
               <legend>Web300</legend>
               <p>Can you login as admin to get the flag ?</p>
               <a href='http://140.127.196.95/'>link</a>
+              {% if hint %} <p>HINT: login function is stupid</p> {% end %}
             </fieldset>
         </div>
 	</div>
