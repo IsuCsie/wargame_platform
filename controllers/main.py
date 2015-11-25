@@ -124,7 +124,12 @@ class SignUpHandler(BaseHandler):
                 "w50": "",
                 "w100": "",
                 "w200": "",
-                "w300": ""
+                "w300": "",
+                "t10": "",
+                "t50": "",
+                "t100":"",
+                "t200":"",
+                "t300":""
             })
             self.render("signup_success.html")
 
