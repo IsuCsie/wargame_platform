@@ -1,0 +1,42 @@
+[
+    {
+        "subj": "Web10", 
+        "desc": "Can you alert me ?", 
+        "link": "http://140.127.196.95/echo.php",
+        "hint": "only strip once",
+        "answ": "bypass_is_kinda_fun",
+        "scor": 10
+    }, 
+    {
+        "subj": "Web50", 
+        "desc": "Can you find out the password of admin", 
+        "link": "http://140.127.196.95/query.php",
+        "hint": "logic flaw is the hole thing",
+        "answ": "never_trust_input",
+        "scor": 50
+    },
+    {
+        "subj": "Web100", 
+        "desc": "Something went wrong in this page", 
+        "link": "/PNF",
+        "hint": "黨不能沒有柱姐",
+        "answ": "comment_is_very_important",
+        "scor": 100
+    },
+    {
+        "subj": "Web200", 
+        "desc": "What the fxxk is this file can you figure is out ?", 
+        "link": "/static/js/wtf.js",
+        "hint": "It is jsfucking you",
+        "answ": "jsfuck_is_rock!",
+        "scor": 200
+    },
+    {
+        "subj": "Web300", 
+        "desc": "Can you login as admin to get the flag ?", 
+        "link": "http://140.127.196.95",
+        "hint": "login function is stupid",
+        "answ": "stupid_way2use_hash",
+        "scor": 300
+    }
+]
