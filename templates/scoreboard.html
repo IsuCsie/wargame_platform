@@ -4,6 +4,7 @@
 <title>{{ escape(handler.settings["website_title"])  }} - 排行</title>
 <meta http-equiv="refresh" content="5; URL=/scoreboard">
 {% end %}
+
 {% block body %}
 	<div class="container scoreboard flow-text section">
 		<div class="up"></div>
@@ -13,28 +14,24 @@
 				<span class="rank">Rank</span>
 				<span class="username">Name</span>
 				<span class="score">Score</span>
-				<span class="quest_flag"></span>
-				<span class="quest_flag"></span>
-				<span class="quest_flag"></span>
-				<span class="quest_flag"></span>
-				<span class="quest_flag"></span>
+        {% for _ in xrange(len(challenges))%}
+				  <span class="quest_flag"></span>
+        {% end %}
 			</div>
 			<hr>
-            <div class="content_scoreboard scrollbar" id="exam">
-                {% if records is not None %}
+      <div class="content_scoreboard scrollbar" id="exam">
+            {% if records is not None %}
                 {% for record in records %}
-				<div class="data">
+			          <div class="data">
                     <span class="rank">{{ records.index(record)+1 }}</span>
                     <span class="username">{{ record["username"] }}</span>
                     <span class="score">{{ record["score"] }}</span>
-                    <span class="quest {% if record["w10"] == "" %}fail{% else %}success{% end %}" title="w10"></span>
-					<span class="quest {% if record["w50"] == "" %}fail{% else %}success{% end %}" title="w50"></span>
-					<span class="quest {% if record["w100"] == "" %}fail{% else %}success{% end %}" title="w100"></span>
-					<span class="quest {% if record["w200"] == "" %}fail{% else %}success{% end %}" title="w200"></span>
-					<span class="quest {% if record["w300"] == "" %}fail{% else %}success{% end %}" title="w300"></span>
+                    {% for challenge in challenges %}
+                    <span class="quest {% if not record[challenge]%}fail{% else %}success{% end %}" title="{{ challenge }}"></span>
+                    {% end %}
                 </div>
                 {% end %}
-                {% end %}
+            {% end %}
 			</div>
 		</div>
 	</div>

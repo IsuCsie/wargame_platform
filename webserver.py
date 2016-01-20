@@ -5,14 +5,15 @@ import os.path
 import tornado.httpserver
 import tornado.ioloop
 import tornado.options
+import tornado.web
 
 from tornado.options import define, options
 from urls import handlers
 from tinydb import TinyDB
 
-define("port", default=80)
+define("port", default=8080)
 
-ONLINE = True  # ONLINE switch, if ONLINE turn debug mode off
+ONLINE = False  # ONLINE switch, if ONLINE turn debug mode off
 
 if ONLINE:
     import tornado.autoreload  # import autoreload module for watch config.json

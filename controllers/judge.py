@@ -1,26 +1,25 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8 J-*-
+
+import json
+
+
+def readJSON(file_name):
+    with open(file_name) as f:
+        return json.load(f)
+
+flag_fmt = "ISU{{{}}}"
 
 
 class Judger(object):
-    w10_key = "ISU{bypass_is_kinda_fun}"
-    w50_key = "ISU{never_trust_input}"
-    w100_key = "ISU{comment_is_very_important}"
-    w200_key = "ISU{jsfuck_is_rock!}"
-    w300_key = "ISU{stupid_way2use_hash}"
+
+    answer_dict = {flag_fmt.format(each['answ']): (each['subj'], each['scor']) for each in readJSON('problems.json')}
 
     def verify(self, key):
-        if key == self.w10_key:
-            result = ["w10", 10, True]
-        elif key == self.w50_key:
-            result = ["w50", 50, True]
-        elif key == self.w100_key:
-            result = ["w100", 100, True]
-        elif key == self.w200_key:
-            result = ["w200", 200, True]
-        elif key == self.w300_key:
-            result = ["w300", 300, True]
+        if key in self.answer_dict.keys():
+            res = self.answer_dict[key]
+            result = (res[0], res[1], True)
         else:
-            result = ["", 0, False]
+            result = ('', 0, False)
 
         return result

@@ -1,8 +1,7 @@
 #!/usr/bin/python
 
-import tornado.web
-
 handlers = [
+    (r"/test", "controllers.main.ChallengeHandler"),
     (r"/", "controllers.main.IndexHandler"),
     (r"/challenge", "controllers.main.ChallengeHandler"),
     (r"/submit", "controllers.main.SubmitHandler"),

@@ -4,12 +4,13 @@
 import tornado.web
 import md5
 import time
-import json
 import datetime
 
-from judge import Judger
+from judge import Judger, readJSON
 from tinydb import where
 from tornado.web import removeslash
+
+challenge_list = "problems.json"
 
 
 class BaseHandler(tornado.web.RequestHandler):
@@ -31,16 +32,11 @@ class IndexHandler(BaseHandler):
 
 
 class ChallengeHandler(BaseHandler):
-    @staticmethod
-    def getHint():  # get hint option from config.json
-        with open('config.json') as f:
-            return json.load(f).get('hint')
-
     @removeslash
     def get(self):
-        hint = self.getHint()
-        print '[SYS] Show Hint is %r' % hint
-        self.render("challenge.html", hint=hint)
+        all_challenges = readJSON(challenge_list)
+        ifHint = readJSON('config.json')['ifHint']
+        self.render("challenge.html", challenges=all_challenges, isHint=ifHint)
 
 
 class SubmitHandler(BaseHandler):
@@ -58,7 +54,7 @@ class SubmitHandler(BaseHandler):
         username = self.get_current_user()
         key = self.get_argument("key")
         result = Judger().verify(key)
-        self.check_result = result[2]
+        self.check_result = result[-1]
         Users = self.db.table('Users')
         user = Users.search(where("username") == username)[0]
         if self.check_result is True and user[result[0]] == "":
@@ -69,28 +65,17 @@ class SubmitHandler(BaseHandler):
             Users.update({"score": score, problem: t, "lastSubmit": t},
                          cond=where("username") == username)
 
-            self.render("submit.html",
-                        username=username,
-                        check_result=self.check_result)
-        else:
-            self.render("submit.html",
-                        username=username,
-                        check_result=self.check_result)
+        self.render("submit.html", username=username, check_result=self.check_result)
 
 
 class RankHandler(BaseHandler):
-    def sortByScore(self, element):
-        return element["score"]
-
-    def sortBylastSubmit(self, element):
-        return element["lastSubmit"]
-
     @removeslash
     def get(self):
         Users = self.db.table('Users')
-        records = sorted(Users.all(), key=self.sortBylastSubmit, reverse=False)
-        records = sorted(records, key=self.sortByScore, reverse=True)
-        self.render('scoreboard.html', records=records)
+        records = sorted(Users.all(), key=lambda element: element['lastSubmit'], reverse=False)
+        records = sorted(records, key=lambda element: element['score'], reverse=True)
+        challenges = [each['subj'] for each in readJSON(challenge_list)]
+        self.render('scoreboard.html', records=records, challenges=challenges)
 
 
 class SignUpHandler(BaseHandler):
@@ -115,17 +100,15 @@ class SignUpHandler(BaseHandler):
             if Users.search((where("username") == username)):
                 raise
 
-            Users.insert({
-                "username": username,
-                "password": password,
-                "lastSubmit": "",
-                "score": 0,
-                "w10": "",
-                "w50": "",
-                "w100": "",
-                "w200": "",
-                "w300": ""
-            })
+            person_info = {each['subj']: '' for each in readJSON(challenge_list)}
+
+            person_info.update(username=username,
+                               password=password,
+                               lastSubmit='',
+                               score=0)
+
+            Users.insert(person_info)
+
             self.render("signup_success.html")
 
         except:
@@ -161,5 +144,3 @@ class LogoutHandler(BaseHandler):
 class PageNotFound(BaseHandler):
     def get(self):
         self.render("404.html")
-
-
