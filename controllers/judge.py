@@ -2,6 +2,7 @@
 # -*- coding: utf-8 J-*-
 
 import json
+from collections import namedtuple
 
 
 def readJSON(file_name):
@@ -10,15 +11,15 @@ def readJSON(file_name):
 
 flag_fmt = "ISU{{{}}}"
 
+pairS = namedtuple('pairS', ['subj', 'scor'])
+
+answer_dict = {flag_fmt.format(each['answ']): pairS(each['subj'], each['scor']) for each in readJSON('problems.json')}
 
 class Judger(object):
-
-    answer_dict = {flag_fmt.format(each['answ']): (each['subj'], each['scor']) for each in readJSON('problems.json')}
-
     def verify(self, key):
         if key in self.answer_dict.keys():
-            res = self.answer_dict[key]
-            result = (res[0], res[1], True)
+            pairs = self.answer_dict[key]
+            result = (pairs.subj, pairs.scor, True)
         else:
             result = ('', 0, False)
 
