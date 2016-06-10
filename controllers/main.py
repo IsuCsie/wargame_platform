@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+from hashlib import md5
 import tornado.web
-import md5
 import time
 import datetime
 
@@ -89,7 +89,7 @@ class SignUpHandler(BaseHandler):
             username = self.get_argument("username")
             password = self.get_argument("password")
 
-            password = md5.new(password).hexdigest()
+            password = md5(password.encode('ascii')).hexdigest()
 
             if len(username) < 9 or len(password) < 4:
                 raise
@@ -123,7 +123,7 @@ class LoginHandler(BaseHandler):
     def post(self):
         Users = self.db.table('Users')
         username = self.get_argument("username")
-        password = md5.new(self.get_argument("password")).hexdigest()
+        password = md5(self.get_argument("password").encode('ascii')).hexdigest()
         login = Users.get(where('username') == username)
 
         if login is not None and login.get('password') == password:
