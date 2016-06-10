@@ -8,7 +8,7 @@
 
 ```bash
 git clone git@github.com:IsuCsie/wargame_platform.git
-pip2 install tinydb
-pip2 install tornado
-python2.7 webserver.py 
+pip3 install tinydb
+pip3 install tornado
+python3 webserver.py 
 ```
