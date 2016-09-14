@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: utf-8 J-*-
+# -*- coding: utf-8 -*-
 
 import json
 from collections import namedtuple
